@@ -1,5 +1,6 @@
 """Using sys to exit if the player does not want to play."""
 import sys
+import random as rnd
 
 MONEY = 100000
 
@@ -20,5 +21,15 @@ def start():
     else:
         print("That's not an answer. Only type 'Y' or 'N'.")
         start()
+
+def game():
+    """The actual game"""
+    playing = True
+    while playing is True:
+        player_card_count1 = rnd.randint(1, 13)
+        player_card_count2 = rnd.randint(1, 13)
+        currentcount = player_card_count1 + player_card_count2
+        if currentcount > 21:
+            print("You already busted. Hope you did not bet too much!")
 
 start()
