@@ -22,6 +22,7 @@ def start():
         print("That's not an answer. Only type 'Y' or 'N'.")
         start()
 
+
 def game():
     """The actual game"""
     playing = True
@@ -31,5 +32,6 @@ def game():
         currentcount = player_card_count1 + player_card_count2
         if currentcount > 21:
             print("You already busted. Hope you did not bet too much!")
+
 
 start()
