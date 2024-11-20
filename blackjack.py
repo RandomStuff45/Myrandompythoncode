@@ -10,29 +10,55 @@ import time
 money = 100000
 
 def playagain():
+    """Asks to play again if the player already played"""
     play_again = input("Do you want to play again? Y/N\n")
-    if play_again ==
+    if play_again == "Y":
+        print("Ok, playing again in 3...")
+        time.sleep(1)
+        print("Ok, playing again in 2...")
+        time.sleep(1)
+        print("Ok, playing again in 1...")
+        time.sleep(1)
+        gamepart1()
+    elif play_again == "y":
+        print("Ok, playing again in 3...")
+        time.sleep(1)
+        print("Ok, playing again in 2...")
+        time.sleep(1)
+        print("Ok, playing again in 1...")
+        time.sleep(1)
+        gamepart1()
+    elif play_again == "N":
+        print("Welp, guess I'm terminating the script.")
+        time.sleep(2)
+        sys.exit()
+    elif play_again == "n":
+        print("Welp, guess I'm terminating the script.")
+        time.sleep(2)
+        sys.exit()
 
 def start():
     """Starts up and asks if the player wants to play."""
     enter = input("Do you want play blackjack?? Y/N\n")
     if enter == "Y":
-        game()
+        gamepart1()
     elif enter == "y":
-        game()
+        gamepart1()
     elif enter == "N":
         print("Welp, guess I'm terminating the script.")
+        time.sleep(2)
         sys.exit()
     elif enter == "n":
         print("Welp, guess I'm terminating the script.")
+        time.sleep(2)
         sys.exit()
     else:
         print("That's not an answer. Only type 'Y' or 'N'.")
         start()
 
 
-def game():
-    """The actual game"""
+def gamepart1():
+    """The actual game part 1"""
     global money
     amount_betting_input = input("How much are you betting?\n")
     amount_betting = int(re.search(r'\d+', amount_betting_input).group())
@@ -48,7 +74,9 @@ def game():
             playagain()
         else:
             input(f"Your current card value is {current_count}. Press any key to continue.")
-
-
+    if player_card_count1 == player_card_count2:
+        gamepart2s()
+    else:
+        gamepart2n()
 
 start()
