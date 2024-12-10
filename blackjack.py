@@ -8,16 +8,21 @@ import random as rnd
 import time
 
 money = 100000
+current_count = 0
 
 def gamepart2n():
-    playagain()
+    global current_count
+    hitorstand = input("Enter 1 to hit or 2 to stand.")
+    if hitorstand == "1":
+        current_count = rnd.randint(1, 13) + current_count
 
 def gamepart2s():
-    playagain()
+    print("Enter 1 to hit, 2 to stand, and 3 to split")
 
 def playagain():
     """Asks to play again if the player already played"""
-    play_again = input("Do you want to play again? Y/N\n")
+    global money
+    play_again = input(f"Do you want to play again? YOur current money amount is ${money} Y/N\n")
     if play_again == "Y":
         print("Ok, playing again in 3...")
         time.sleep(1)
@@ -45,7 +50,7 @@ def playagain():
 
 def start():
     """Starts up and asks if the player wants to play."""
-    enter = input("Do you want play blackjack?? Y/N\n")
+    enter = input("Do you want to play blackjack? Y/N\n")
     if enter == "Y":
         gamepart1()
     elif enter == "y":
@@ -64,8 +69,9 @@ def start():
 
 def gamepart1():
     """The actual game part 1"""
+    global current_count
     global money
-    amount_betting_input = input("How much are you betting?\n")
+    amount_betting_input = input(f"How much are you betting? YOu have ${money}.\n")
     amount_betting = int(re.search(r'\d+', amount_betting_input).group())
     player_card_count1 = rnd.randint(1, 13)
     player_card_count2 = rnd.randint(1, 13)
