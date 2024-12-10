@@ -14,7 +14,10 @@ def gamepart2n():
     global current_count
     hitorstand = input("Enter 1 to hit or 2 to stand.")
     if hitorstand == "1":
-        current_count = rnd.randint(1, 13) + current_count
+        temp_current_count = current_count
+        current_count = rnd.randint(1, 13) + temp_current_count
+        hitorstand2 = input(f"Your current card count is {current_count}. Press 1 to continue or 2 to stand")
+        if hitorstand2 == ""
 
 def gamepart2s():
     print("Enter 1 to hit, 2 to stand, and 3 to split")
